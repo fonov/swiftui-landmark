@@ -1,4 +1,4 @@
-# Landmark app build on SwiftUI
+# Landmark app built on SwiftUI
 
 <img src="https://user-images.githubusercontent.com/17071211/205443240-ace3b323-c5b4-4372-b6f6-80df31933136.png" width="390"/>
 <img src="https://user-images.githubusercontent.com/17071211/205443238-55577771-eec1-4886-b25b-f9fce33bc939.png" width="390"/>
