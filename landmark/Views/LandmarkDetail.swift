@@ -12,12 +12,22 @@ struct LandmarkDetail: View {
 
   var body: some View {
     ScrollView {
-      MapView(coordinate: landmark.locationCoordinate)
-        .frame(height: 300)
+      NavigationLink {
+        MapView(coordinate: landmark.locationCoordinate)
+          .ignoresSafeArea(.all)
 
-      CircleImage(image: landmark.image)
-        .offset(y: -130)
-        .padding(.bottom, -130)
+      } label: {
+        MapView(coordinate: landmark.locationCoordinate)
+          .frame(height: 300)
+          .offset(y: 130)
+          .padding(.top, -130)
+      }
+
+      NavigationLink {
+        LandmarkImage(landmark: landmark)
+      } label: {
+        CircleImage(image: landmark.image)
+      }
 
       VStack(alignment: .leading) {
         Text(landmark.name)

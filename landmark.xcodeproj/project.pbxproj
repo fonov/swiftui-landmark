@@ -22,6 +22,7 @@
 		A67BBE2D293B647A00312AAE /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE2C293B647A00312AAE /* LandmarkDetail.swift */; };
 		A67BBE2F293B64E700312AAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE2E293B64E700312AAE /* MapView.swift */; };
 		A67BBE31293B67C600312AAE /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE30293B67C600312AAE /* CircleImage.swift */; };
+		A67BBE35293B829B00312AAE /* LandmarkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE34293B829B00312AAE /* LandmarkImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		A67BBE2C293B647A00312AAE /* LandmarkDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
 		A67BBE2E293B64E700312AAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A67BBE30293B67C600312AAE /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		A67BBE34293B829B00312AAE /* LandmarkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				A67BBE2C293B647A00312AAE /* LandmarkDetail.swift */,
 				A67BBE2E293B64E700312AAE /* MapView.swift */,
 				A67BBE30293B67C600312AAE /* CircleImage.swift */,
+				A67BBE34293B829B00312AAE /* LandmarkImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat --lint .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -354,6 +357,7 @@
 				A67BBDDE293B56BC00312AAE /* landmarkApp.swift in Sources */,
 				A67BBE31293B67C600312AAE /* CircleImage.swift in Sources */,
 				A67BBE29293B5F2700312AAE /* LandmarkRow.swift in Sources */,
+				A67BBE35293B829B00312AAE /* LandmarkImage.swift in Sources */,
 				A67BBE0B293B57B600312AAE /* Landmark.swift in Sources */,
 				A67BBE2D293B647A00312AAE /* LandmarkDetail.swift in Sources */,
 			);
