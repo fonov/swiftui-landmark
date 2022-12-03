@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A67BBE25293B5E2800312AAE /* Views */,
-				A67BBE22293B5C3C00312AAE /* models */,
+				A67BBE22293B5C3C00312AAE /* Models */,
 				A67BBE07293B571300312AAE /* Resources */,
 				A67BBDDD293B56BC00312AAE /* landmarkApp.swift */,
 				A67BBDE1293B56BE00312AAE /* Assets.xcassets */,
@@ -153,13 +153,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A67BBE22293B5C3C00312AAE /* models */ = {
+		A67BBE22293B5C3C00312AAE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A67BBE0A293B57B600312AAE /* Landmark.swift */,
 				A67BBE23293B5C4C00312AAE /* ModelData.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A67BBE25293B5E2800312AAE /* Views */ = {
@@ -182,6 +182,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A67BBDFE293B56BE00312AAE /* Build configuration list for PBXNativeTarget "landmark" */;
 			buildPhases = (
+				A67BBE32293B80AF00312AAE /* SwiftLint */,
+				A67BBE33293B80D900312AAE /* SwiftFormat */,
 				A67BBDD6293B56BC00312AAE /* Sources */,
 				A67BBDD7293B56BC00312AAE /* Frameworks */,
 				A67BBDD8293B56BC00312AAE /* Resources */,
@@ -300,6 +302,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A67BBE32293B80AF00312AAE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif [ ! -f ~/com.raywenderlich.swiftlint.yml ]; then\n  echo \"warning: can't found config file ~/com.raywenderlich.swiftlint.yml\"\n  exit 0\nfi\nif which swiftlint > /dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		A67BBE33293B80D900312AAE /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A67BBDD6293B56BC00312AAE /* Sources */ = {
