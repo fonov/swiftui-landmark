@@ -12,8 +12,6 @@ struct LandmarkImage: View {
 
   var body: some View {
     landmark.image
-      .navigationTitle(landmark.name)
-      .navigationBarTitleDisplayMode(.inline)
   }
 }
 

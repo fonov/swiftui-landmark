@@ -15,7 +15,6 @@ struct LandmarkDetail: View {
       NavigationLink {
         MapView(coordinate: landmark.locationCoordinate)
           .ignoresSafeArea(.all)
-
       } label: {
         MapView(coordinate: landmark.locationCoordinate)
           .frame(height: 300)
@@ -25,6 +24,7 @@ struct LandmarkDetail: View {
 
       NavigationLink {
         LandmarkImage(landmark: landmark)
+          .ignoresSafeArea(.all)
       } label: {
         CircleImage(image: landmark.image)
       }
