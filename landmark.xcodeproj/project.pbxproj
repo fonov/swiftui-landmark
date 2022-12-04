@@ -23,6 +23,7 @@
 		A67BBE2F293B64E700312AAE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE2E293B64E700312AAE /* MapView.swift */; };
 		A67BBE31293B67C600312AAE /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE30293B67C600312AAE /* CircleImage.swift */; };
 		A67BBE35293B829B00312AAE /* LandmarkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE34293B829B00312AAE /* LandmarkImage.swift */; };
+		A67BBE3B293CC25300312AAE /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE3A293CC25300312AAE /* FavoriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		A67BBE2E293B64E700312AAE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		A67BBE30293B67C600312AAE /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		A67BBE34293B829B00312AAE /* LandmarkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkImage.swift; sourceTree = "<group>"; };
+		A67BBE3A293CC25300312AAE /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,15 +169,32 @@
 		A67BBE25293B5E2800312AAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A67BBE3D293CC3C100312AAE /* Landmarks */,
+				A67BBE3C293CC3A700312AAE /* Helpers */,
 				A67BBDDF293B56BC00312AAE /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A67BBE3C293CC3A700312AAE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A67BBE2E293B64E700312AAE /* MapView.swift */,
+				A67BBE30293B67C600312AAE /* CircleImage.swift */,
+				A67BBE3A293CC25300312AAE /* FavoriteButton.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A67BBE3D293CC3C100312AAE /* Landmarks */ = {
+			isa = PBXGroup;
+			children = (
 				A67BBE28293B5F2700312AAE /* LandmarkRow.swift */,
 				A67BBE2A293B62A100312AAE /* LandmarkList.swift */,
 				A67BBE2C293B647A00312AAE /* LandmarkDetail.swift */,
-				A67BBE2E293B64E700312AAE /* MapView.swift */,
-				A67BBE30293B67C600312AAE /* CircleImage.swift */,
 				A67BBE34293B829B00312AAE /* LandmarkImage.swift */,
 			);
-			path = Views;
+			path = Landmarks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat --lint .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat --lint --lenient .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -353,6 +372,7 @@
 				A67BBDE0293B56BC00312AAE /* ContentView.swift in Sources */,
 				A67BBE2F293B64E700312AAE /* MapView.swift in Sources */,
 				A67BBE2B293B62A100312AAE /* LandmarkList.swift in Sources */,
+				A67BBE3B293CC25300312AAE /* FavoriteButton.swift in Sources */,
 				A67BBE24293B5C4C00312AAE /* ModelData.swift in Sources */,
 				A67BBDDE293B56BC00312AAE /* landmarkApp.swift in Sources */,
 				A67BBE31293B67C600312AAE /* CircleImage.swift in Sources */,
