@@ -21,7 +21,7 @@ struct LandmarkList: View {
     NavigationView {
       List {
         Toggle(isOn: $isFavoriteOnly) {
-          Text("Favorite only")
+          Text("Favourite only")
         }
         ForEach(filteredLandmarks) { landmark in
           NavigationLink {
@@ -32,6 +32,11 @@ struct LandmarkList: View {
         }
       }
       .navigationTitle("Landmarks")
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          AppInfo()
+        }
+      }
     }
   }
 }
