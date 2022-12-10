@@ -9,6 +9,7 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
+// TODO: remove Hashable protocol
 struct Landmark: Codable, Hashable, Identifiable {
   var name: String
   var category: String
