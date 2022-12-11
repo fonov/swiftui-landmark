@@ -45,4 +45,8 @@ struct Landmark: Codable, Hashable, Identifiable {
   var image: Image {
     Image(imageName)
   }
+
+  var featureImage: Image? {
+    isFeatured ? Image("\(imageName)_feature") : nil
+  }
 }

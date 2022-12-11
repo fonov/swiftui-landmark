@@ -20,7 +20,7 @@ final class ModelData: ObservableObject {
   }
 
   var futures: [Landmark] {
-    landmarks.filter(\.isFavorite)
+    landmarks.filter(\.isFeatured)
   }
 }
 

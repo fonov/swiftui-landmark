@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileEditor: View {
   @Binding var profile: Profile
 
- var dateRange: ClosedRange<Date> {
+  var dateRange: ClosedRange<Date> {
     let min = Calendar.current.date(byAdding: .day, value: -7, to: profile.goalDate)!
     let max = Calendar.current.date(byAdding: .day, value: 7, to: profile.goalDate)!
     return min ... max
