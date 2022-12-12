@@ -1,0 +1,11 @@
+{
+    "aps": {
+        "alert": {
+            "title": "Turtle Rock",
+            "body": "You are within 5 miles of Turtle Rock."
+        },
+        "category": "LandmarkNear",
+        "thread-id": "5280"
+    },
+    "landmarkIndex": 0,
+}
