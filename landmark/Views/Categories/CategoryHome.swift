@@ -14,8 +14,8 @@ struct CategoryHome: View {
   var body: some View {
     NavigationView {
       List {
-        PageView(pages: modelData.futures.map { FeatureCard(landmark: $0)})
-          .aspectRatio(3/2, contentMode: .fit)
+        PageView(pages: modelData.futures.map { FeatureCard(landmark: $0) })
+          .aspectRatio(3 / 2, contentMode: .fit)
           .listRowInsets(EdgeInsets())
 
         ForEach(modelData.category.keys.sorted(), id: \.self) { key in
