@@ -17,9 +17,9 @@ struct LandmarkApp: App {
         .environmentObject(modelData)
     }
     #if !os(watchOS)
-      .commands {
-        LandmarksCommands()
-      }
+    .commands {
+      LandmarksCommands()
+    }
     #endif
 
     #if os(watchOS)
