@@ -10,19 +10,36 @@ import SwiftUI
 struct LandmarkList: View {
   @EnvironmentObject var modelData: ModelData
   @State private var isFavoriteOnly = false
+  @State private var filter = FilteredCategory.all
+
+  enum FilteredCategory: String, CaseIterable, Identifiable {
+    case all = "All"
+    case lakes = "Lakes"
+    case rivers = "Rivers"
+    case mountains = "Mountains"
+
+    var id: FilteredCategory { self }
+  }
 
   var filteredLandmarks: [Landmark] {
     modelData.landmarks.filter { landmark in
-      !isFavoriteOnly || landmark.isFavorite
+      (
+        !isFavoriteOnly || landmark.isFavorite
+      ) &&
+        (
+          filter == .all || filter.rawValue == landmark.category.rawValue
+        )
     }
+  }
+
+  var title: String {
+    let title = filter == .all ? "Landmarks" : filter.rawValue
+    return isFavoriteOnly ? "Favorite \(title)" : title
   }
 
   var body: some View {
     NavigationView {
       List {
-        Toggle(isOn: $isFavoriteOnly) {
-          Text("Favourite only")
-        }
         ForEach(filteredLandmarks) { landmark in
           NavigationLink {
             LandmarkDetail(landmark: landmark)
@@ -31,13 +48,29 @@ struct LandmarkList: View {
           }
         }
       }
-      .navigationTitle("Landmarks")
+      .navigationTitle(title)
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
-          AppInfo()
+          Menu {
+            Picker("Category", selection: $filter) {
+              ForEach(FilteredCategory.allCases) { category in
+                Text(category.rawValue)
+                  .tag(category)
+              }
+            }
+            .pickerStyle(.inline)
+            Toggle(isOn: $isFavoriteOnly) {
+              Text("Favourite only")
+            }
+            AppInfo()
+          } label: {
+            Label("Filter", systemImage: "slider.horizontal.3")
+          }
         }
       }
       .frame(minWidth: 300)
+
+      Text("Select a Landmark")
     }
   }
 }

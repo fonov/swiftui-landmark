@@ -43,7 +43,7 @@ struct LandmarkList: View {
 
 struct LandmarkList_Previews: PreviewProvider {
   static var previews: some View {
-      LandmarkList()
-        .environmentObject(ModelData())
+    LandmarkList()
+      .environmentObject(ModelData())
   }
 }

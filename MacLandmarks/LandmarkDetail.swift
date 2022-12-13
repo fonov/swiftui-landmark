@@ -5,8 +5,8 @@
 //  Created by Sergei Fonov on 13.12.22.
 //
 
-import SwiftUI
 import MapKit
+import SwiftUI
 
 struct LandmarkDetail: View {
   var landmark: Landmark
@@ -19,7 +19,7 @@ struct LandmarkDetail: View {
 
   var body: some View {
     ScrollView {
-      ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
+      ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
         MapView(coordinate: landmark.locationCoordinate)
           .ignoresSafeArea(edges: .top)
           .frame(height: 300)
