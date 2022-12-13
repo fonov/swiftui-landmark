@@ -5,47 +5,47 @@
 //  Created by Sergei Fonov on 12.12.22.
 //
 
-import WatchKit
 import SwiftUI
 import UserNotifications
+import WatchKit
 
 class NotificationController: WKUserNotificationHostingController<NotificationView> {
-    var landmark: Landmark?
-    var title: String?
-    var message: String?
+  var landmark: Landmark?
+  var title: String?
+  var message: String?
 
-    let landmarkIndexKey = "landmarkIndex"
+  let landmarkIndexKey = "landmarkIndex"
 
-    override var body: NotificationView {
-        NotificationView(
-          title: title,
-          message: message,
-          landmark: landmark
-        )
+  override var body: NotificationView {
+    NotificationView(
+      title: title,
+      message: message,
+      landmark: landmark
+    )
+  }
+
+  override func willActivate() {
+    // This method is called when watch view controller is about to be visible to user
+    super.willActivate()
+  }
+
+  override func didDeactivate() {
+    // This method is called when watch view controller is no longer visible
+    super.didDeactivate()
+  }
+
+  override func didReceive(_ notification: UNNotification) {
+    let modelData = ModelData()
+
+    let notificationData = notification.request.content.userInfo as? [String: Any]
+
+    if let aps = notificationData?["aps"] as? [String: Any], let alert = aps["alert"] as? [String: Any] {
+      title = alert["title"] as? String
+      message = alert["message"] as? String
     }
 
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+    if let index = notificationData?[landmarkIndexKey] as? Int {
+      landmark = modelData.landmarks[index]
     }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
-    override func didReceive(_ notification: UNNotification) {
-      let modelData = ModelData()
-
-      let notificationData = notification.request.content.userInfo as? [String: Any]
-
-      if let aps = notificationData?["aps"] as? [String: Any], let alert = aps["alert"] as? [String: Any] {
-        title = alert["title"] as? String
-        message = alert["message"] as? String
-      }
-
-      if let index = notificationData?[landmarkIndexKey] as? Int {
-        landmark = modelData.landmarks[index]
-      }
-    }
+  }
 }

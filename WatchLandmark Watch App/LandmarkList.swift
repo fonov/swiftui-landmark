@@ -37,27 +37,13 @@ struct LandmarkList: View {
           AppInfo()
         }
       }
-      .frame(minWidth: 300)
     }
   }
 }
 
 struct LandmarkList_Previews: PreviewProvider {
   static var previews: some View {
-    Group {
       LandmarkList()
         .environmentObject(ModelData())
-
-      ForEach([
-        "iPhone 14 Pro",
-        "iPad Pro (11-inch) (4th generation)",
-        "iPad mini (6th generation)",
-      ], id: \.self) { deviceName in
-        LandmarkList()
-          .previewDevice(PreviewDevice(rawValue: deviceName))
-          .previewDisplayName(deviceName)
-          .environmentObject(ModelData())
-      }
-    }
   }
 }
