@@ -10,7 +10,8 @@ import SwiftUI
 struct LandmarkList: View {
   @EnvironmentObject var modelData: ModelData
   @State private var isFavoriteOnly = false
-
+  @State private var isShowInfoAlert = false
+  
   var filteredLandmarks: [Landmark] {
     modelData.landmarks.filter { landmark in
       !isFavoriteOnly || landmark.isFavorite
@@ -34,8 +35,17 @@ struct LandmarkList: View {
       .navigationTitle("Landmarks")
       .toolbar {
         ToolbarItem(placement: .primaryAction) {
-          AppInfo()
+          Button {
+            isShowInfoAlert.toggle()
+          } label: {
+            Label("App Info", systemImage: "info.circle")
+          }
+          .padding(.bottom, 10)
         }
+      }
+      .alert(isPresented: $isShowInfoAlert) {
+        let appInfo = AppInfo()
+        return Alert(title: appInfo.title, message: appInfo.message)
       }
     }
   }

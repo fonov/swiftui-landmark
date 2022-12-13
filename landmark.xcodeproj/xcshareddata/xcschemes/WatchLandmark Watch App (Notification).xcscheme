@@ -41,7 +41,7 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
-      notificationPayloadFile = "WatchLandmark Watch App/TestData/PushNotificationPayload.apns">
+      notificationPayloadFile = "WatchLandmarks Watch App/TestData/PushNotificationPayload.apns">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference

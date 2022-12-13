@@ -12,6 +12,7 @@ struct LandmarkList: View {
   @State private var isFavoriteOnly = false
   @State private var filter = FilteredCategory.all
   @State private var selectedLandmark: Landmark?
+  @State private var isShowInfoAlert = false
 
   enum FilteredCategory: String, CaseIterable, Identifiable {
     case all = "All"
@@ -71,12 +72,19 @@ struct LandmarkList: View {
             Toggle(isOn: $isFavoriteOnly) {
               Text("Favourite only")
             }
-            // FIXME: button doesn't show alert
-            AppInfo()
+            Button {
+              isShowInfoAlert.toggle()
+            } label: {
+              Label("App Info", systemImage: "info.circle")
+            }
           } label: {
             Label("Filter", systemImage: "slider.horizontal.3")
           }
         }
+      }
+      .alert(isPresented: $isShowInfoAlert) {
+        let appInfo = AppInfo()
+        return Alert(title: appInfo.title, message: appInfo.message)
       }
 
       Text("Select a Landmark")
