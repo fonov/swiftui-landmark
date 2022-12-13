@@ -62,6 +62,7 @@ struct LandmarkList: View {
             Toggle(isOn: $isFavoriteOnly) {
               Text("Favourite only")
             }
+            // FIXME: button doesn't show alert
             AppInfo()
           } label: {
             Label("Filter", systemImage: "slider.horizontal.3")
