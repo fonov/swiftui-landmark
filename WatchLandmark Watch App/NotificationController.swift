@@ -39,11 +39,10 @@ class NotificationController: WKUserNotificationHostingController<NotificationVi
 
       let notificationData = notification.request.content.userInfo as? [String: Any]
 
-      let aps = notificationData?["aps"] as? [String: Any]
-      let alert = aps?["alert"] as? [String: Any]
-
-      title = alert?["title"] as? String
-      message = alert?["message"] as? String
+      if let aps = notificationData?["aps"] as? [String: Any], let alert = aps["alert"] as? [String: Any] {
+        title = alert["title"] as? String
+        message = alert["message"] as? String
+      }
 
       if let index = notificationData?[landmarkIndexKey] as? Int {
         landmark = modelData.landmarks[index]
