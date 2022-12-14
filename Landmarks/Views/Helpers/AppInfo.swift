@@ -17,6 +17,7 @@ struct AppInfo {
   var title: Text {
     Text(appName)
   }
+
   var message: Text {
     Text("""
 
@@ -27,4 +28,3 @@ struct AppInfo {
     """)
   }
 }
-
