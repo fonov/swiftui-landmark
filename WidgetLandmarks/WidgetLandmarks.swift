@@ -10,23 +10,25 @@ import SwiftUI
 import WidgetKit
 
 struct Provider: IntentTimelineProvider {
-  func placeholder(in _: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+  func placeholder(in _: Context) -> LandmarkEntry {
+    LandmarkEntry(date: Date(), landmark: ModelData().landmarks[0])
   }
 
-  func getSnapshot(for configuration: ConfigurationIntent, in _: Context, completion: @escaping (SimpleEntry) -> Void) {
-    let entry = SimpleEntry(date: Date(), configuration: configuration)
+  func getSnapshot(for _: ConfigurationIntent, in _: Context, completion: @escaping (LandmarkEntry) -> Void) {
+    let landmark = ModelData().landmarks.randomElement()!
+    let entry = LandmarkEntry(date: Date(), landmark: landmark)
     completion(entry)
   }
 
-  func getTimeline(for configuration: ConfigurationIntent, in _: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    var entries: [SimpleEntry] = []
+  func getTimeline(for _: ConfigurationIntent, in _: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    var entries: [LandmarkEntry] = []
 
-    // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+    let landmarks = ModelData().landmarks
+
     let currentDate = Date()
-    for hourOffset in 0 ..< 5 {
-      let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-      let entry = SimpleEntry(date: entryDate, configuration: configuration)
+    for minuteOffset in 0 ..< 5 {
+      let entryDate = Calendar.current.date(byAdding: .minute, value: 15 * minuteOffset, to: currentDate)!
+      let entry = LandmarkEntry(date: entryDate, landmark: landmarks.randomElement()!)
       entries.append(entry)
     }
 
@@ -35,16 +37,38 @@ struct Provider: IntentTimelineProvider {
   }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct LandmarkEntry: TimelineEntry {
   let date: Date
-  let configuration: ConfigurationIntent
+  let landmark: Landmark
 }
 
 struct WidgetLandmarksEntryView: View {
   var entry: Provider.Entry
 
   var body: some View {
-    Text(entry.date, style: .time)
+    let landmark = entry.landmark
+
+    return
+      GeometryReader { geometry in
+        VStack {
+          landmark.image
+            .resizable()
+            .scaledToFill()
+            .frame(width: geometry.size.width, height: geometry.size.height)
+            .overlay {
+              ZStack(alignment: .topTrailing) {
+                TextOverlay(landmark: landmark)
+                if landmark.isFavorite {
+                  Image(systemName: "star.fill")
+                    .imageScale(.medium)
+                    .foregroundColor(Color("gold"))
+                    .shadow(color: .black, radius: 6)
+                    .padding()
+                }
+              }
+            }
+        }
+      }
   }
 }
 
@@ -55,14 +79,15 @@ struct WidgetLandmarks: Widget {
     IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
       WidgetLandmarksEntryView(entry: entry)
     }
-    .configurationDisplayName("My Widget")
-    .description("This is an example widget.")
+    .configurationDisplayName("Landmark")
+    .description("Show favorite landmarks.")
+    .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
   }
 }
 
 struct WidgetLandmarks_Previews: PreviewProvider {
   static var previews: some View {
-    WidgetLandmarksEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+    WidgetLandmarksEntryView(entry: LandmarkEntry(date: Date(), landmark: ModelData().landmarks[0]))
       .previewContext(WidgetPreviewContext(family: .systemSmall))
   }
 }
