@@ -44,12 +44,24 @@ struct ProfileSummary: View {
         Divider()
 
         VStack(alignment: .leading) {
-          Text("Recent Hikes")
-            .font(.headline)
+          HStack {
+            Text("Recent Hikes")
+              .font(.headline)
+            if modelData.hikes.isEmpty {
+              ProgressView()
+                .padding(.leading, 5)
+            }
+          }
+          .padding(.top, 5)
 
-          HikeView(hike: modelData.hikes[0])
+          if let hike = modelData.hikes.first {
+            HikeView(hike: hike)
+          }
         }
       }
+    }
+    .onAppear {
+      modelData.getHikes()
     }
   }
 }
