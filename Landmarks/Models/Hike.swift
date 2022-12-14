@@ -8,6 +8,8 @@
 import Foundation
 
 struct Hike: Codable, Hashable, Identifiable {
+  static var storeKey = "Hike.Data"
+
   var name: String
   var id: Int
   var distance: Double
@@ -47,8 +49,7 @@ extension ModelData {
   func getHikes() {
     guard let url = URL(string: hikesUrl) else { fatalError("wrong url") }
     let networkRequest = URLRequest(url: url)
-    let dataTask = URLSession.shared.dataTask(with: networkRequest) {
-      data, response, error in
+    let dataTask = URLSession.shared.dataTask(with: networkRequest) { data, response, error in
       if error != nil {
         self.isSuccessRequestHikes = false
       }
@@ -62,6 +63,8 @@ extension ModelData {
           let decoder = JSONDecoder()
           self.hikes = try decoder.decode([Hike].self, from: data)
           self.isSuccessRequestHikes = true
+
+          UserDefaults.standard.set(data, forKey: Hike.storeKey)
         } catch {
           self.isSuccessRequestHikes = false
         }
@@ -69,6 +72,15 @@ extension ModelData {
     }
 
     isSuccessRequestHikes = nil
+
+    if let hikes = UserDefaults.standard.object(forKey: Hike.storeKey) as? Data {
+      do {
+        let decoder = JSONDecoder()
+        self.hikes = try decoder.decode([Hike].self, from: hikes)
+      } catch {
+        fatalError("JSON's corrupt")
+      }
+    }
 
     dataTask.resume()
   }
