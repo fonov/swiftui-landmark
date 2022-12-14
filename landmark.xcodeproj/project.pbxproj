@@ -176,6 +176,7 @@
 		A69BFF8D2949E38A00ED49E7 /* WidgetLandmarks.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = WidgetLandmarks.intentdefinition; sourceTree = "<group>"; };
 		A69BFF8E2949E38B00ED49E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A69BFF902949E38B00ED49E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A69BFFD9294A20D700ED49E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6BFA6842947803F002542AA /* PushNotificationPayload.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		A6BFA6852947803F002542AA /* PushNotificationPayload2.apns */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PushNotificationPayload2.apns; sourceTree = "<group>"; };
 		A6BFA68C29486B7A002542AA /* MacLandmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacLandmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +247,7 @@
 		A62152372948CF1500A4C2D7 /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
+				A69BFFD9294A20D700ED49E7 /* Info.plist */,
 				A69BFF5B2948D7E100ED49E7 /* Preview Content */,
 				A67BBE25293B5E2800312AAE /* Views */,
 				A67BBE22293B5C3C00312AAE /* Models */,
@@ -899,6 +901,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HIKES_URL = "https://gist.githubusercontent.com/fonov/cb49876673e79359dc40ba3619526900/raw/bef5b3b0baf64d01bebf4fe2e3e4c1e6662339e8/hikes.json";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -953,6 +956,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HIKES_URL = "https://gist.githubusercontent.com/fonov/cb49876673e79359dc40ba3619526900/raw/bef5b3b0baf64d01bebf4fe2e3e4c1e6662339e8/hikes.json";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -974,6 +978,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Landmarks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1003,6 +1008,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Landmarks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

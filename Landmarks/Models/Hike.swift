@@ -40,8 +40,12 @@ extension Hike {
 // MARK: Load hikes from server
 
 extension ModelData {
+  var hikesUrl: String {
+    Bundle.main.object(forInfoDictionaryKey: "AppHikesUrl") as? String ?? ""
+  }
+
   func getHikes() {
-    guard let url = URL(string: "https://gist.githubusercontent.com/fonov/cb49876673e79359dc40ba3619526900/raw/bef5b3b0baf64d01bebf4fe2e3e4c1e6662339e8/hikes.json") else { fatalError("wrong url") }
+    guard let url = URL(string: hikesUrl) else { fatalError("wrong url") }
     let networkRequest = URLRequest(url: url)
     let dataTask = URLSession.shared.dataTask(with: networkRequest) {
       data, response, error in
