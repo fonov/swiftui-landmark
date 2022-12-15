@@ -12,14 +12,17 @@
     <img src="./showcase/images/iphone/9.png" width="190">
 </p>
 
-## WidgetToday Preview
+## Widget Today Preview
 
 <p align="center">
     <img src="./showcase/images/widget/0.png" width="190">
     <img src="./showcase/images/widget/1.png" width="190">
 </p>
 
-## Apple Watch Priview
+### Feature
+ * Customization widget through `Intents`
+
+## Apple Watch Preview
 
 <p align="center">
     <img src="./showcase/images/watch/0.png" width="140">
@@ -28,14 +31,29 @@
     <img src="./showcase/images/watch/4.png" width="140">
 </p>
 
+### Features
+ * Custom `NotificationView` for notifications
 
-## MacOS APP
+## MacOS Preview
 
 <p align="center">
     <img src="./showcase/images/macos/2.png" width="390">
     <img src="./showcase/images/macos/4.png" width="390">
 </p>
 
-## Features
+<img src="./showcase/images/macos/5.png" width="290">
 
-*  SwiftUI
+### Feature
+ * Impliment custom commands
+ * Impliment custom setting view
+
+
+## Technical Features
+
+* SwiftUI
+* Swift 5.7
+* UIKit to SwiftUI thought `UIHostingController`
+* Load data from server and save it in `UserDefault`
+* Use `CoreGraphics` to draw 2D figures
+* Use `MapKit` for dispaly map
+* Use `SwiftUI` unified layout thought iPhone, Watch, MacOS targets
