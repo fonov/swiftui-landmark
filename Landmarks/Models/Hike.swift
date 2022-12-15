@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Hike: Codable, Hashable, Identifiable {
+struct Hike: Codable, Identifiable {
   static var storeKey = "Hike.Data"
 
   var name: String
