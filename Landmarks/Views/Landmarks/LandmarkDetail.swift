@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkDetail: View {
   var landmark: Landmark
-
+  @State var showingImage = false
   @EnvironmentObject var modelData: ModelData
 
   var landmarkIndex: Int {
@@ -18,19 +18,13 @@ struct LandmarkDetail: View {
 
   var body: some View {
     ScrollView {
-      NavigationLink {
-        MapView(coordinate: landmark.locationCoordinate)
-          .ignoresSafeArea(.all)
-      } label: {
-        MapView(coordinate: landmark.locationCoordinate)
-          .frame(height: 300)
-          .offset(y: 130)
-          .padding(.top, -130)
-      }
+      MapView(coordinate: landmark.locationCoordinate)
+        .frame(height: 300)
+        .offset(y: 130)
+        .padding(.top, -130)
 
-      NavigationLink {
-        LandmarkImage(landmark: landmark)
-          .ignoresSafeArea(.all)
+      Button {
+        showingImage.toggle()
       } label: {
         CircleImage(image: landmark.image)
       }
@@ -61,6 +55,10 @@ struct LandmarkDetail: View {
     .ignoresSafeArea(edges: .top)
     .navigationTitle(landmark.name)
     .navigationBarTitleDisplayMode(.inline)
+    .sheet(isPresented: $showingImage) {
+      LandmarkImage(landmark: landmark)
+        .ignoresSafeArea(.all)
+    }
   }
 }
 
