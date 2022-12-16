@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "landmarks-swift-package",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fonov/landmarks-swift-package.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "508fac0fd40f6138d1062bce374b0cf64d2183c6"
+      }
+    }
+  ],
+  "version" : 2
+}

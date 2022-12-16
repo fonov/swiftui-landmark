@@ -6,28 +6,9 @@
 //
 
 import Foundation
+import struct LandmarksUtils.Hike
 
-struct Hike: Codable, Identifiable {
-  static var storeKey = "Hike.Data"
-
-  var name: String
-  var id: Int
-  var distance: Double
-  var difficulty: Int
-
-  var observations: [Observation]
-}
-
-// MARK: observation struct
-
-extension Hike {
-  struct Observation: Codable, Hashable {
-    var elevation: Range<Double>
-    var pace: Range<Double>
-    var heartRate: Range<Double>
-    var distanceFromStart: Double
-  }
-}
+typealias Hike = LandmarksUtils.Hike
 
 // MARK: distance description
 

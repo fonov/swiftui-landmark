@@ -34,6 +34,10 @@
 		A6399BB5294769AB00B4B63A /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBE3E293CD84000312AAE /* AppInfo.swift */; };
 		A6399BB729476ED300B4B63A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6399BB629476ED300B4B63A /* NotificationView.swift */; };
 		A6399BDB2947720500B4B63A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6399BDA2947720500B4B63A /* NotificationController.swift */; };
+		A667F360294C7DBC0094181B /* LandmarksUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A667F35F294C7DBC0094181B /* LandmarksUtils */; };
+		A667F362294C7DC30094181B /* LandmarksUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A667F361294C7DC30094181B /* LandmarksUtils */; };
+		A667F364294C7DC80094181B /* LandmarksUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A667F363294C7DC80094181B /* LandmarksUtils */; };
+		A667F366294C7DCE0094181B /* LandmarksUtils in Frameworks */ = {isa = PBXBuildFile; productRef = A667F365294C7DCE0094181B /* LandmarksUtils */; };
 		A67BBDDE293B56BC00312AAE /* LandmarkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBDDD293B56BC00312AAE /* LandmarkApp.swift */; };
 		A67BBDE0293B56BC00312AAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67BBDDF293B56BC00312AAE /* ContentView.swift */; };
 		A67BBDE2293B56BE00312AAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A67BBDE1293B56BE00312AAE /* Assets.xcassets */; };
@@ -205,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A667F362294C7DC30094181B /* LandmarksUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A667F360294C7DBC0094181B /* LandmarksUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +227,7 @@
 			files = (
 				A69BFF852949E38A00ED49E7 /* SwiftUI.framework in Frameworks */,
 				A69BFF832949E38A00ED49E7 /* WidgetKit.framework in Frameworks */,
+				A667F366294C7DCE0094181B /* LandmarksUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A667F364294C7DC80094181B /* LandmarksUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +491,9 @@
 			dependencies = (
 			);
 			name = "WatchLandmark Watch App";
+			packageProductDependencies = (
+				A667F361294C7DC30094181B /* LandmarksUtils */,
+			);
 			productName = "WatchLandmark Watch App";
 			productReference = A6399B982947596900B4B63A /* WatchLandmark Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -504,6 +515,9 @@
 				A69BFF942949E38B00ED49E7 /* PBXTargetDependency */,
 			);
 			name = Landmarks;
+			packageProductDependencies = (
+				A667F35F294C7DBC0094181B /* LandmarksUtils */,
+			);
 			productName = landmark;
 			productReference = A67BBDDA293B56BC00312AAE /* Landmarks.app */;
 			productType = "com.apple.product-type.application";
@@ -521,6 +535,9 @@
 			dependencies = (
 			);
 			name = WidgetLandmarksExtension;
+			packageProductDependencies = (
+				A667F365294C7DCE0094181B /* LandmarksUtils */,
+			);
 			productName = WidgetLandmarksExtension;
 			productReference = A69BFF802949E38A00ED49E7 /* WidgetLandmarksExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -538,6 +555,9 @@
 			dependencies = (
 			);
 			name = MacLandmarks;
+			packageProductDependencies = (
+				A667F363294C7DC80094181B /* LandmarksUtils */,
+			);
 			productName = MacLandmarks;
 			productReference = A6BFA68C29486B7A002542AA /* MacLandmarks.app */;
 			productType = "com.apple.product-type.application";
@@ -575,6 +595,9 @@
 				Base,
 			);
 			mainGroup = A67BBDD1293B56BC00312AAE;
+			packageReferences = (
+				A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */,
+			);
 			productRefGroup = A67BBDDB293B56BC00312AAE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1182,6 +1205,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fonov/landmarks-swift-package.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A667F35F294C7DBC0094181B /* LandmarksUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */;
+			productName = LandmarksUtils;
+		};
+		A667F361294C7DC30094181B /* LandmarksUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */;
+			productName = LandmarksUtils;
+		};
+		A667F363294C7DC80094181B /* LandmarksUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */;
+			productName = LandmarksUtils;
+		};
+		A667F365294C7DCE0094181B /* LandmarksUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A667F35E294C7DBC0094181B /* XCRemoteSwiftPackageReference "landmarks-swift-package" */;
+			productName = LandmarksUtils;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A67BBDD2293B56BC00312AAE /* Project object */;
 }

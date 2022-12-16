@@ -7,32 +7,10 @@
 
 import CoreLocation
 import Foundation
+import struct LandmarksUtils.Landmark
 import SwiftUI
 
-struct Landmark: Codable, Hashable, Identifiable {
-  var name: String
-  var city: String
-  var state: String
-  var id: Int
-  var isFeatured: Bool
-  var isFavorite: Bool
-  var park: String
-  var description: String
-  private var imageName: String
-  var category: Category
-  private var coordinates: Coordinates
-
-  enum Category: String, CaseIterable, Codable {
-    case lakes = "Lakes"
-    case rivers = "Rivers"
-    case mountains = "Mountains"
-  }
-
-  struct Coordinates: Codable, Hashable {
-    var longitude: Double
-    var latitude: Double
-  }
-}
+typealias Landmark = LandmarksUtils.Landmark
 
 extension Landmark {
   var locationCoordinate: CLLocationCoordinate2D {
