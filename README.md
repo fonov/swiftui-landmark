@@ -44,16 +44,17 @@
 <img src="./showcase/images/macos/5.png" width="290">
 
 ### Feature
- * Impliment custom commands
- * Impliment custom setting view
+ * Implement custom commands
+ * Implement custom setting view
 
 
 ## Technical Features
 
 * SwiftUI
 * Swift 5.7
-* UIKit to SwiftUI thought `UIHostingController`
-* Load data from server and save it in `UserDefault`
+* UIKit to SwiftUI through `UIHostingController`
+* Load data from the server and save it in `UserDefault`
 * Use `CoreGraphics` to draw 2D figures
-* Use `MapKit` for dispaly map
-* Use `SwiftUI` unified layout thought iPhone, Watch, MacOS targets
+* Use `MapKit` for display the map
+* Use `SwiftUI` unified layout through iPhone, Watch, macOS targets
+* Use `LandmarksUtils` Swift Package for import models
